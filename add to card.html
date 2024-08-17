@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #bdd1d5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+    .contaner {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .product {
+        background-color: #8a838d;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(56, 62, 42, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .product img {
+        height: 400px;
+        width: 400px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+    .product:hover img {
+            transform: scale(1.1);
+    }
+    
+    .product-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+    h3 {
+        margin: 8px 0 4px 0;
+    }
+
+    button {
+            cursor: pointer;
+            padding: 8px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #555;
+        }
+    h2 {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10PX;
+    }
+    .cart {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(254, 15, 15, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .cart h2 {
+            margin-top: 0;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #cart-item button {
+            background-color: #f44336;
+        }
+
+        #cart-item button:hover {
+            background-color: #d32f2f;
+        }
+</style>
+
+<body>
+    <header>
+        <h1>shopping cart</h1>
+    </header>
+    <div class="contaner">
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/10/8d/4d/108d4dab8b552d056f2c3d159caa19cd.jpg" ; alt="product 1">
+            <h3>Dress</h3>
+            <p>Price: $50.3</p>
+            <button onclick="Addtocard('Dress 1', 50.3)">Add to card</button>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh8cTbYmBfrDX6MrMvzVr1xj9P15SZfFVytzVm3mKOVDjtje1wM7I7cfsDUBRvmyOQV-A&usqp=CAU"
+                alt="product 2">
+            <h3>Dress</h3>
+            <p>Price: $35.3</p>
+            <button onclick="Addtocard('Dress 2', 50.3)">Add to card</button>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLXw7hxNEuz2YtcmqXDnT2U4cpU2Qq1iQf93yhxaljSq4R7HW1TB6NBpw4r_rHszows5M&usqp=CAU"
+                alt="product 3">
+            <h3>Dress</h3>
+            <p>Price: $250.3</p>
+            <button onclick="Addtocard('Dress 3', 50.3)">Add to card</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/474x/b3/38/77/b33877489ddefee3e8ee7bf437d3c145.jpg" alt="product 4">
+            <h3>Dress</h3>
+            <p>Price: $150.3</p>
+            <button onclick="Addtocard('Dress 4', 50.3)">Add to card</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/564x/28/cc/c8/28ccc817c3caaa166020ccdcb45e1690.jpg" alt="product 5">
+            <h3>Dress</h3>
+            <p>Price: $250.3</p>
+            <button onclick="Addtocard('Dress 5', 50.3)">Add to card</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/474x/69/e8/15/69e815e84c4fea7e236ee3be728475aa.jpg" alt="product 6">
+            <h3>Dress</h3>
+            <p>Price: $350.3</p>
+            <button onclick="Addtocard('Dress 6', 50.3)">Add to card</button>
+        </div>
+        <div class="cart">
+            <h2>shopping cart</h2>
+            <ul id="Cart-items"></ul>
+        </div>
+    </div>
+    <script>
+        const cart = [];
+        function Addtocard(productName, price) {
+            const cartItems = document.getElementById("Cart-items");
+            const listItems = document.createElement("li");
+
+            listItems.innerHTML = ` 
+                ${productName} - ${price}
+                <button class="remove-button" onclick="removeFromCart(this)">Remove</button>`;
+
+            cartItems.appendChild(listItems);
+            cart.push({ name: production, price: price })
+        }
+        function removeFromCart(button) {
+            const listItems = button.parentElement;
+            const productName = listItems.innerText.split("-")[0];
+
+            cart.splice(cart.findIndex(item => item.name === productName), 1);
+
+            listItems.remove();
+        }
+
+    </script>
+</body>
+
+</html>
