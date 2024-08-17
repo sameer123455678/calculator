@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @keyframes slide-in {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .animated-element {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            animation: slide-in 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-element">box</div>
+</body>
+</html>

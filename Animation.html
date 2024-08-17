@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inter {
+            height: 200px;
+            width: 200px;
+            /* background-color: aqua; */
+            margin: 50%;
+            /* border: 2px solid */
+            
+        } 
+        .outer {
+            height: 200px;
+            width: 200px;
+            border: 2px solid;
+            background-image: linear-gradient(45deg, rgb(13, 114, 228) rgb(208, 24, 24));
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+
+            animation: identifier;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+
+        }
+
+        @keyframes identifier {
+            0% {
+                background-image: radial-gradient(45deg, rgb(165, 38, 197), rgb(15, 174, 248));
+            }
+
+            50% {
+                background-image: radial-gradient(45deg, rgb(11, 222, 229), rgb(198, 246, 7)); border-radius: 50%;
+                font-size: small;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inter">
+        <div class="outer">Box</div>
+    </div>
+</body>
+
+</html>
